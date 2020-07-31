@@ -4,6 +4,7 @@
 
 let Cookie = $prefs.valueForKey("xyCookie");
 let Referer = $prefs.valueForKey("xyReferer");
+console.log(Referer);
 let Req = {
   url: Referer+"/checkin",
   method: "POST",
