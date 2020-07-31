@@ -11,7 +11,7 @@ let Req = {
   method: "POST",
   headers: {
     Cookie: Cookie,
-    Referer: '${Host}/user',
+    Referer: `https://${Host}/user`,
     "User-Agent": Agent
   }
 };
