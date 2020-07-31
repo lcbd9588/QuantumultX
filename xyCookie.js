@@ -4,6 +4,7 @@
 
 let headerCookie = $request.headers["Cookie"];
 let headereferer = $request.headers["Referer"];
+console.log(headereferer);
 if (headerCookie && headereferer) {
   if ($prefs.valueForKey("xyCookie") != undefined && $prefs.valueForKey("xyReferer") != undefined) {
     if ($prefs.valueForKey("xyCookie") != headerCookie) {
