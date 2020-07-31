@@ -3,15 +3,16 @@
  */
 
 let Cookie = $prefs.valueForKey("xyCookie");
-let Referer = $prefs.valueForKey("xyReferer");
+let Host = $prefs.valueForKey("xyHost");
+let Agent = $prefs.valueForKey("xyAgent");
 console.log(Referer);
 let Req = {
   url: Referer+"/checkin",
   method: "POST",
   headers: {
     Cookie: Cookie,
-    Referer: Referer,
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
+    Referer: '${Host}/user',
+    "User-Agent": Agent
   }
 };
 
