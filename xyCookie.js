@@ -3,10 +3,10 @@
  */
 
 let headerCookie = $request.headers["Cookie"];
-let headereferer = $request.headers["Referer"];
+let headereferer = "https://xunyun.us/user";
 console.log(headereferer);
 if (headerCookie && headereferer) {
-  if ($prefs.valueForKey("xyCookie") != undefined && $prefs.valueForKey("xyReferer") != undefined) {
+  if ($prefs.valueForKey("xyCookie") != undefined) {
     if ($prefs.valueForKey("xyCookie") != headerCookie) {
       var cookie = $prefs.setValueForKey(headerCookie, "xyCookie");
       if (!cookie) {
@@ -25,16 +25,10 @@ if (headerCookie && headereferer) {
     }
   } else {
     let cookie = $prefs.setValueForKey(headerCookie, "xyCookie");
-    let referer = $prefs.setValueForKey(headereferer, "xyReferer");
     if (!cookie) {
       $notify("首次写入迅云Cookie失败！", "", "");
     } else {
       $notify("首次写入迅云Cookie成功！", "", "");
-    }
-    if (!referer) {
-      $notify("首次写入迅云Referer失败！", "", "");
-    } else {
-      $notify("首次写入迅云Referer失败！", "", "");
     }
   }
 }
