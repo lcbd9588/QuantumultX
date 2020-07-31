@@ -3,11 +3,9 @@
  */
 
 let headerCookie = $request.headers["Cookie"];
-let headereferer = "https://xunyun.us/user";
-let obj = JSON.stringify($request.headers);
- $notify(obj, "", obj);
-console.log(headereferer);
-if (headerCookie && headereferer) {
+let headerHost = $request.headers["Host"];
+let headerAgent = $request.headers["User-Agent"];
+if (headerCookie && headerHost && headerAgent) {
   if ($prefs.valueForKey("xyCookie") != undefined) {
     if ($prefs.valueForKey("xyCookie") != headerCookie) {
       var cookie = $prefs.setValueForKey(headerCookie, "xyCookie");
@@ -17,12 +15,20 @@ if (headerCookie && headereferer) {
         $notify("更新迅云Cookie成功！", "", "");
       }
     }
-    if ($prefs.valueForKey("xyReferer") != headereferer) {
-      var referer = $prefs.setValueForKey(headereferer, "xyReferer");
-      if (!referer) {
-        $notify("更新迅云referer失败！", "", "");
+    if ($prefs.valueForKey("xyHost") != headerHost) {
+      var host = $prefs.setValueForKey(headerHost, "xyHost");
+      if (!host) {
+        $notify("更新迅云host失败！", "", "");
       } else {
-        $notify("更新迅云referer成功！", "", "");
+        $notify("更新迅云host成功！", "", "");
+      }
+    }
+    if ($prefs.valueForKey("xyAgent") != headerAgent) {
+      var agent = $prefs.setValueForKey(headerAgent, "xyAgent");
+      if (!agent) {
+        $notify("更新迅云agent失败！", "", "");
+      } else {
+        $notify("更新迅云agent成功！", "", "");
       }
     }
   } else {
