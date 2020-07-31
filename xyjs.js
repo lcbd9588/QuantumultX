@@ -3,15 +3,15 @@
  */
 
 let Cookie = $prefs.valueForKey("xyCookie");
-let Host = $prefs.valueForKey("xyHost");
+let Host = "https://"+$prefs.valueForKey("xyHost");
 let Agent = $prefs.valueForKey("xyAgent");
 console.log("Host:"+ Host);
 let Req = {
-  url: Referer+"/checkin",
+  url: `${Host}/user/checkin`,
   method: "POST",
   headers: {
     Cookie: Cookie,
-    Referer: `https://${Host}/user`,
+    Referer: `${Host}/user`,
     "User-Agent": Agent
   }
 };
