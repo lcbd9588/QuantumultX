@@ -5,7 +5,7 @@
 let headerCookie = $request.headers["Cookie"];
 let headereferer = "https://xunyun.us/user";
 let obj = JSON.stringify($request.headers);
- $notify(obj, "", "");
+ $notify(obj, "", obj);
 console.log(headereferer);
 if (headerCookie && headereferer) {
   if ($prefs.valueForKey("xyCookie") != undefined) {
