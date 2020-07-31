@@ -4,13 +4,11 @@
 
 let Cookie = $prefs.valueForKey("xyCookie");
 let Referer = $prefs.valueForKey("xyReferer");
-let Origin = this.Referer.substring(0,this.Referer.indexOf("/user"));
 let Req = {
   url: Referer+"/checkin",
   method: "POST",
   headers: {
     Cookie: Cookie,
-    Origin: Origin,
     Referer: Referer,
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
   }
