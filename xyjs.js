@@ -4,7 +4,7 @@
 
 let Cookie = $prefs.valueForKey("xyCookie");
 let Referer = $prefs.valueForKey("xyReferer");
-let Origin = $prefs.valueForKey(Referer.substring(0,Referer.indexOf("/user")));
+let Origin = this.Referer.substring(0,this.Referer.indexOf("/user"));
 let Req = {
   url: Referer+"/checkin",
   method: "POST",
