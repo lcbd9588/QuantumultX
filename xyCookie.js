@@ -3,7 +3,7 @@
  */
 
 let headerCookie = $request.headers["Cookie"];
-let headereferer = $request.headers["referer"];
+let headereferer = $request.headers["Referer"];
 if (headerCookie && headereferer) {
   if ($prefs.valueForKey("xyCookie") != undefined && $prefs.valueForKey("xyReferer") != undefined) {
     if ($prefs.valueForKey("xyCookie") != headerCookie) {
@@ -15,7 +15,7 @@ if (headerCookie && headereferer) {
       }
     }
     if ($prefs.valueForKey("xyReferer") != headereferer) {
-      var referer = $prefs.setValueForKey(headerCookie, "xyReferer");
+      var referer = $prefs.setValueForKey(headereferer, "xyReferer");
       if (!referer) {
         $notify("更新迅云referer失败！", "", "");
       } else {
