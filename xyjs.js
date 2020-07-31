@@ -3,14 +3,14 @@
  */
 
 let Cookie = $prefs.valueForKey("xyCookie");
-
+let link = $prefs.valueForKey("xyLink");
 let Req = {
-  url: "https://xunyun.best/user/checkin",
+  url: link+"/user/checkin",
   method: "POST",
   headers: {
     Cookie: Cookie,
-    Origin: "https://xunyun.best",
-    Referer: "https://xunyun.best/user",
+    Origin: link,
+    Referer: link+"/user",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
   }
 };
