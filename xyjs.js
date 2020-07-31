@@ -3,14 +3,15 @@
  */
 
 let Cookie = $prefs.valueForKey("xyCookie");
-let link = $prefs.valueForKey("xyLink");
+let Referer = $prefs.valueForKey("xyReferer");
+let Origin = $prefs.valueForKey(Referer.substring(0,Referer.indexOf("/user")));
 let Req = {
-  url: link+"/user/checkin",
+  url: Referer+"/checkin",
   method: "POST",
   headers: {
     Cookie: Cookie,
-    Origin: link,
-    Referer: link+"/user",
+    Origin: Origin,
+    Referer: Referer,
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
   }
 };
